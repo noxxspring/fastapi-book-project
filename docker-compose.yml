@@ -13,6 +13,6 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Mount custom nginx.conf
     ports:
-      - "80:80"  # Expose Nginx to port 80
+      - "8080:80"  # Expose Nginx to port 80
     depends_on:
       - fastapi
