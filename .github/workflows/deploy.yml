@@ -29,6 +29,6 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Add your private SSH key as a GitHub Secret
           script: |
-            cd /home/ubuntu/fastapi-book-project  || exit 1
+            cd /home/ubuntu/fastapi-book-project 
             git pull 
-            docker-compose up -d --build || exit 1  # Rebuild and start containers
+            docker-compose up -d --build  # Rebuild and start containers
