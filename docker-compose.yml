@@ -6,8 +6,6 @@ services:
     container_name: fastapi-app
     ports:
       - "8000:8000"  # Expose FastAPI app to port 8000
-    networks:
-      - backend
 
   nginx:
     image: nginx:latest
@@ -18,9 +16,3 @@ services:
       - "80:80"  # Expose Nginx to port 80
     depends_on:
       - fastapi
-    networks:
-      - backend
-
-networks:
-  backend:
-    driver: bridge
