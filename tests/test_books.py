@@ -1,13 +1,13 @@
 from tests import client
 
 
-def test_get_all_books(client):
+def test_get_all_books():
     response = client.get("/books/")
     assert response.status_code == 200
     assert len(response.json()) == 3
 
 
-def test_get_single_book():
+def test_get_single_book(client):
     response = client.get("/books/1")
     assert response.status_code == 200
     data = response.json()
@@ -48,5 +48,5 @@ def test_delete_book():
     response = client.delete("/books/3")
     assert response.status_code == 204
 
-    response = client.get("/books/9")
+    response = client.get("/books/3")
     assert response.status_code == 404
