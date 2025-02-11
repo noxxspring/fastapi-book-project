@@ -22,10 +22,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}  # Add Docker Hub username as GitHub Secrets
           password: ${{ secrets.DOCKER_PASSWORD }}  # Add Docker Hub password as GitHub Secrets
 
-      - name: Build Docker Image
-        run: |
-          docker build -t noxxspring/fastapi-app:latest .
-
       - name: Push Docker Image to Docker Hub
         run: |
           docker push noxxspring/fastapi-app:latest
