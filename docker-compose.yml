@@ -17,5 +17,3 @@ services:
     depends_on:
       - fastapi
 
-
-n
