@@ -34,10 +34,9 @@ jobs:
         uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.EC2_PUBLIC_IP }}  # Add your EC2 public IP as a GitHub Secret
-          username: ec2-user
+          username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Add your private SSH key as a GitHub Secret
           script: |
             cd /home/ubuntu/fastapi-book-project  || exit 1
-            docker-compose down || exit 1  # Stop any running containers
+            git pull 
             docker-compose up -d --build || exit 1  # Rebuild and start containers
-            docker system prune -f  # Clean up unused Docker images
