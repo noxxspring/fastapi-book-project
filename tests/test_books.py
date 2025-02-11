@@ -1,7 +1,7 @@
 from tests import client
 
 
-def test_get_all_books():
+def test_get_all_books(client):
     response = client.get("/books/")
     assert response.status_code == 200
     assert len(response.json()) == 3
@@ -48,5 +48,5 @@ def test_delete_book():
     response = client.delete("/books/3")
     assert response.status_code == 204
 
-    response = client.get("/books/3")
+    response = client.get("/books/9")
     assert response.status_code == 404

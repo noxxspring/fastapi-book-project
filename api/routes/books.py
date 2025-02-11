@@ -64,6 +64,9 @@ async def update_book(book_id: int, book: Book) -> Book:
 
 
 @router.delete("/{book_id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_book(book_id: int) -> None:
-    db.delete_book(book_id)
-    return JSONResponse(status_code=status.HTTP_204_NO_CONTENT, content=None)
+async def delete_book(book_id: int):
+    book = get_book_by_id(book_id)
+    if book is None:
+        raise HTTPException(status_code=404, detail="Book not found")
+    delete_book_by_id(book_id)
+    return {"message": "Book deleted"}
