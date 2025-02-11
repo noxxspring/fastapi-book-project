@@ -29,6 +29,8 @@ jobs:
           username: ubuntu
           key: ${{ secrets.SSH_PRIVATE_KEY }}  # Add your private SSH key as a GitHub Secret
           script: |
-            cd /home/ubuntu/fastapi-book-project 
+            cd /home/ubuntu/
+            git clone https://github.com/noxxspring/fastapi-book-project.git
+            cd fastapi-book-project/
             git pull 
             docker-compose up -d --build  # Rebuild and start containers
